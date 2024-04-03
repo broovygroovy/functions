@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Website</title>
+<link
+href="https://typography-interaction-2324.github.io/assets/reset.css"
+rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+  <h1>Give Permission to populate system fonts on screen by locating them in folder</h1>
+  <button id="getFontsButton">Get Fonts List</button>
+
+  <ul id="fileList"></ul>
+
+  <script>
+    document.getElementById('getFontsButton').addEventListener('click', async function() {
+      try {
+        const fontsDirHandle = await window.showDirectoryPicker();
+        const fileList = document.getElementById('fileList');
+        fileList.innerHTML = ''; // Clear previous entries
+
+        const files = [];
+        for await (const entry of fontsDirHandle.values()) {
+          if (entry instanceof FileSystemFileHandle) {
+            files.push(entry.name);
+            const li = document.createElement('li');
+            li.textContent = entry.name;
+            fileList.appendChild(li);
+          }
+        }
+      } catch (err) {
+        console.error('Error accessing fonts directory:', err);
+      }
+    });
+  </script>
+</body>
+</html>
