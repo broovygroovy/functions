@@ -9,282 +9,17 @@ href="https://typography-interaction-2324.github.io/assets/reset.css"
 rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
 </head>
+
 <body>
-  <h1>Give Permission to populate system fonts on screen by locating them in folder</h1>
-  <button id="getFontsButton">Get Fonts List</button>
+  <div class="container">
+    <h1>File List from /Library/Fonts Directory</h1>
 
-  <ul id="fileList"></ul>
+    <input type="text" id="sampleTextInput" placeholder="Enter sample text" value="Aa Bb Cc Dd Ee">
 
-  <div class="macbook-pro">
-    <div class="overlap-wrapper">
-      <div class="overlap">
-        <div class="overlap-group"><div class="text-wrapper">aa</div></div>
-        <div class="div">
-          <div class="div-wrapper"><div class="text-wrapper-2">Display</div></div>
-          <div class="overlap-2"><div class="text-wrapper-3">Thick</div></div>
-          <img class="vector" src="img/vector-95.svg" />
-          <img class="img" src="img/vector-99.svg" />
-          <img class="vector-2" src="img/vector-103.svg" />
-          <div class="text-wrapper-4">groovy</div>
-          <div class="text-wrapper-5">Medium</div>
-          <div class="text-wrapper-6">2019 | Akira Expanded</div>
-          <div class="text-wrapper-7">BG</div>
-          <img class="vector-3" src="img/vector-107.svg" />
-          <div class="rectangle"></div>
-          <div class="rectangle-2"></div>
-        </div>
-        <div class="overlap-3">
-          <div class="div-wrapper"><div class="text-wrapper-2">Display</div></div>
-          <div class="overlap-2"><div class="text-wrapper-3">Thick</div></div>
-          <img class="vector" src="img/vector-125.svg" />
-          <img class="img" src="img/vector-126.svg" />
-          <img class="vector-2" src="img/vector-127.svg" />
-          <div class="text-wrapper-8">groovy</div>
-          <div class="text-wrapper-5">Medium</div>
-          <div class="text-wrapper-6">2019 | Akira Expanded</div>
-          <div class="text-wrapper-7">BG</div>
-          <img class="vector-3" src="img/vector-128.svg" />
-          <div class="rectangle"></div>
-          <div class="rectangle-2"></div>
-        </div>
-        <div class="overlap-4">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-1.svg" />
-          <img class="img" src="img/vector-34.svg" />
-          <img class="vector-2" src="img/vector-35.svg" />
-          <div class="text-wrapper-9">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Anton</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-36.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-5">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-93.svg" />
-          <img class="img" src="img/vector-97.svg" />
-          <img class="vector-2" src="img/vector-101.svg" />
-          <div class="text-wrapper-15">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-105.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-6">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-81.svg" />
-          <img class="img" src="img/vector-82.svg" />
-          <img class="vector-2" src="img/vector-83.svg" />
-          <div class="text-wrapper-16">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2018 | Aguafina Script</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-84.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-7">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-94.svg" />
-          <img class="img" src="img/vector-98.svg" />
-          <img class="vector-2" src="img/vector-102.svg" />
-          <div class="text-wrapper-17">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-106.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-8">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-110.svg" />
-          <img class="img" src="img/vector-114.svg" />
-          <img class="vector-2" src="img/vector-118.svg" />
-          <div class="text-wrapper-18">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-122.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-9">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-85.svg" />
-          <img class="img" src="img/vector-86.svg" />
-          <img class="vector-2" src="img/vector-87.svg" />
-          <div class="text-wrapper-19">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-88.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-10">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-111.svg" />
-          <img class="img" src="img/vector-115.svg" />
-          <img class="vector-2" src="img/vector-119.svg" />
-          <div class="text-wrapper-20">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-123.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-11">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-89.svg" />
-          <img class="img" src="img/vector-90.svg" />
-          <img class="vector-2" src="img/vector-91.svg" />
-          <div class="text-wrapper-21">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-92.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-group-2">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-96.svg" />
-          <img class="img" src="img/vector-100.svg" />
-          <img class="vector-2" src="img/vector-104.svg" />
-          <div class="text-wrapper-22">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-108.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <div class="overlap-12">
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <div class="rectangle-5"></div>
-          <img class="vector" src="img/vector-112.svg" />
-          <img class="img" src="img/vector-116.svg" />
-          <img class="vector-2" src="img/vector-120.svg" />
-          <div class="text-wrapper-23">groovy</div>
-          <div class="text-wrapper-10">Medium</div>
-          <div class="text-wrapper-11">Display</div>
-          <div class="text-wrapper-12">2019 | Akira Expanded</div>
-          <div class="text-wrapper-13">Thick</div>
-          <div class="text-wrapper-14">BG</div>
-          <img class="vector-3" src="img/vector-124.svg" />
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-        </div>
-        <img class="vector-4" src="img/vector-33.svg" />
-        <img class="vector-5" src="img/vector-75.svg" />
-        <div class="overlap-13">
-          <div class="text-wrapper-24">groovy</div>
-          <div class="text-wrapper-25">|</div>
-        </div>
-        <div class="text-wrapper-26">Deselect All</div>
-        <div class="text-wrapper-27">Showing 185 fonts</div>
-        <div class="overlap-14">
-          <div class="text-wrapper-28">A</div>
-          <div class="text-wrapper-29">-</div>
-          <div class="rectangle-8"></div>
-        </div>
-        <div class="overlap-15">
-          <div class="text-wrapper-30">AA</div>
-          <div class="rectangle-9"></div>
-        </div>
-        <div class="overlap-16">
-          <div class="text-wrapper-31">A A</div>
-          <div class="rectangle-10"></div>
-        </div>
-        <div class="overlap-17">
-          <div class="text-wrapper-31">Aa</div>
-          <div class="rectangle-11"></div>
-        </div>
-        <div class="overlap-18">
-          <div class="text-wrapper-32">AA</div>
-          <div class="rectangle-11"></div>
-        </div>
-        <div class="overlap-19">
-          <div class="text-wrapper-28">A</div>
-          <div class="text-wrapper-33">+</div>
-          <div class="rectangle-8"></div>
-        </div>
-        <div class="group">
-          <div class="rectangle-12"></div>
-          <div class="rectangle-13"></div>
-          <div class="rectangle-14"></div>
-        </div>
-        <div class="group-2">
-          <div class="rectangle-15"></div>
-          <div class="rectangle-16"></div>
-          <div class="rectangle-17"></div>
-          <div class="rectangle-18"></div>
-        </div>
-        <div class="group-3">
-          <div class="rectangle-12"></div>
-          <div class="rectangle-13"></div>
-        </div>
-        <div class="rectangle-19"></div>
-        <div class="rectangle-20"></div>
-        <div class="rectangle-21"></div>
-        <div class="rectangle-22"></div>
-        <div class="rectangle-23"></div>
-        <div class="rectangle-24"></div>
-        <div class="rectangle-25"></div>
-        <div class="rectangle-26"></div>
-        <img class="vector-6" src="img/vector-76.svg" />
-        <div class="text-wrapper-34">All</div>
-        <div class="text-wrapper-35">Categorized</div>
-        <div class="text-wrapper-36">Saved</div>
-        <div class="overlap-20">
-          <img class="vector-7" src="img/vector-77.svg" />
-          <img class="vector-8" src="img/vector-78.svg" />
-          <img class="vector-9" src="img/vector-79.svg" />
-          <img class="vector-10" src="img/vector-80.svg" />
-        </div>
-        <div class="LO-GO">LO<br />GO</div>
+    <button id="getFontsButton">Get Fonts List</button>
+
+    <ul id="fileList"></ul>
+  </div>
 
   <script>
     document.getElementById('getFontsButton').addEventListener('click', async function() {
@@ -293,18 +28,60 @@ rel="stylesheet"/>
         const fileList = document.getElementById('fileList');
         fileList.innerHTML = ''; // Clear previous entries
 
-        const files = [];
         for await (const entry of fontsDirHandle.values()) {
           if (entry instanceof FileSystemFileHandle) {
-            files.push(entry.name);
             const li = document.createElement('li');
-            li.textContent = entry.name;
+            li.classList.add('file-item'); // class for styling
+
+            // File name
+            const fileName = document.createElement('div');
+            fileName.classList.add('file-name');
+            fileName.textContent = entry.name;
+            li.appendChild(fileName);
+
+            // Sample text
+            const sampleText = document.createElement('div');
+            sampleText.classList.add('sample-text');
+            li.appendChild(sampleText);
+
             fileList.appendChild(li);
+
+            loadFont(entry, sampleText); // Load font and display sample text
           }
         }
       } catch (err) {
         console.error('Error accessing fonts directory:', err);
       }
+    });
+
+    async function loadFont(fileHandle, sampleTextElement) {
+      const file = await fileHandle.getFile();
+      const blob = new Blob([file], { type: 'font/ttf' });
+      const fontUrl = URL.createObjectURL(blob);
+      const fontName = fileHandle.name.split('.')[0]; // Extract font name from file name
+
+      // Set @font-face rule dynamically
+      const style = document.createElement('style');
+      style.textContent = `
+        @font-face {
+          font-family: '${fontName}';
+          src: url('${fontUrl}');
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Apply loaded font to sample text
+      sampleTextElement.style.fontFamily = fontName;
+      sampleTextElement.textContent = document.getElementById('sampleTextInput').value;
+    }
+
+    // Update sample text for all font items when user types in the input box
+    document.getElementById('sampleTextInput').addEventListener('input', function() {
+      const sampleText = this.value;
+      const sampleTextElements = document.querySelectorAll('.sample-text');
+      sampleTextElements.forEach(function(sampleTextElement) {
+        sampleTextElement.textContent = sampleText;
+      });
     });
   </script>
 </body>
