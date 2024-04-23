@@ -2,6 +2,7 @@ const allFilter = document.getElementById("all");
 const displayFilter = document.getElementById("display");
 const modernFilter = document.getElementById("modern");
 
+// Layout change event handlers
 const fourCol = document.getElementById("four-col");
 const threeCol = document.getElementById("three-col");
 const twoCol = document.getElementById("two-col");
@@ -78,7 +79,8 @@ twoCol.addEventListener("click", () => {
 	}
 });
 
-let cards = document.querySelectorAll(".card");
+// FILTERING SETUP
+let cards = document.querySelectorAll(".card"); // Ensure this selector matches your card elements
 
 document
 	.getElementById("getFontsButton")
@@ -86,17 +88,19 @@ document
 		try {
 			const fontsDirHandle = await window.showDirectoryPicker();
 			const fileList = document.getElementById("fileList");
-			fileList.innerHTML = ""; 
+			fileList.innerHTML = ""; // Clear previous entries
 
 			for await (const entry of fontsDirHandle.values()) {
 				if (entry instanceof FileSystemFileHandle) {
 					const li = document.createElement("li");
-					li.classList.add("card");
+					li.classList.add("card"); // class for styling
 
-					const rawFontName = entry.name.split(".")[0];
+					// Extract and format font name
+					const rawFontName = entry.name.split(".")[0]; // Remove extension
 					const formattedFontName =
-						rawFontName.charAt(0).toUpperCase() + rawFontName.slice(1);
+						rawFontName.charAt(0).toUpperCase() + rawFontName.slice(1); // Capitalize first letter
 
+					// File name
 					const fontName = document.createElement("div");
 					fontName.classList.add("font-name");
 					const font = document.createElement("p");
@@ -104,12 +108,14 @@ document
 					fontName.appendChild(font);
 					li.appendChild(fontName);
 
+					// Font display
 					const fontDisplay = document.createElement("div");
 					fontDisplay.classList.add("font-display");
 					const display = document.createElement("p");
 					fontDisplay.appendChild(display);
 					li.appendChild(fontDisplay);
 
+					//Card Function
 					const cardFunction = document.createElement("div");
 					cardFunction.classList.add("card-selector");
 
@@ -143,8 +149,9 @@ document
 
 					updateCards();
 
-					loadFont(entry, fontDisplay);
+					loadFont(entry, fontDisplay); // Load font and display sample text
 
+					//select a tag
 					modernTag.addEventListener("click", () => {
 						if (modernTag.classList.contains("active")) {
 							modernTag.classList.remove("active");
@@ -189,25 +196,29 @@ document
 						}
 					});
 
+					// Selecting the increase and decrease buttons
 					const increase = document.getElementById("increase");
 					const decrease = document.getElementById("decrease");
 
-					let increment = 0;
+					let increment = 0; // Tracks the total change in font size relative to the initial size
 
+					// Hardcoded initial font sizes for each layout
 					const initialFontSizes = {
 						"two-col": 80,
 						"three-col": 60,
 						"four-col": 40,
 					};
 
-					let initialFontSize = initialFontSizes["four-col"];
+					let initialFontSize = initialFontSizes["four-col"]; // Default to four-col layout initially
 
+					// Event listener for increasing font size
 					increase.addEventListener("click", () => {
-						adjustFontSize(5);
+						adjustFontSize(5); // Attempt to increase font size by 5px
 					});
 
+					// Event listener for decreasing font size
 					decrease.addEventListener("click", () => {
-						adjustFontSize(-5); 
+						adjustFontSize(-5); // Attempt to decrease font size by 5px
 					});
 
 					function adjustFontSize(change) {
@@ -216,13 +227,13 @@ document
 						const newIncrement = increment + change;
 
 						if (newIncrement >= 15 || newIncrement <= -15) {
-							increment = change > 0 ? 15 : -15; 
-							fontDisplay.style.fontSize = initialFontSize + increment + "px";
-							disableButtons(change > 0); 
+							increment = change > 0 ? 15 : -15; // Set increment to boundary value
+							fontDisplay.style.fontSize = initialFontSize + increment + "px"; // Apply the boundary font size
+							disableButtons(change > 0); // Disable the appropriate button
 						} else {
 							increment = newIncrement;
 							resetButtonStyles();
-							fontDisplay.style.fontSize = currentFontSize + change + "px";
+							fontDisplay.style.fontSize = currentFontSize + change + "px"; // Apply the new font size
 							console.log(
 								`Font size adjusted to: ${
 									currentFontSize + change
@@ -253,7 +264,7 @@ document
 					}
 
 					function resetFontSize(layoutType) {
-						initialFontSize = initialFontSizes[layoutType];
+						initialFontSize = initialFontSizes[layoutType]; // Set the font size based on layout type
 						resetButtonStyles();
 						increment = 0;
 						fontDisplay.style.fontSize = initialFontSize + "px";
@@ -273,11 +284,12 @@ document
 						cardContainer.style.display = "block";
 					}
 
+					// Attach layout change listeners and apply corresponding font size reset
 					const colButtons = document.querySelectorAll(".layout-option");
 					colButtons.forEach((button) => {
 						button.addEventListener("click", () => {
-							const layoutType = button.id;
-							resetFontSize(layoutType);
+							const layoutType = button.id; // 'two-col', 'three-col', or 'four-col'
+							resetFontSize(layoutType); // Reset font size according to the layout
 						});
 					});
 				}
@@ -287,20 +299,23 @@ document
 		}
 	});
 
+// Updates the list of all cards in the filter context
 function updateCards() {
-	cards = document.querySelectorAll(".card");
+	cards = document.querySelectorAll(".card"); // Re-query all cards after new additions
 }
 
+// Filtering functionality to be re-checked
 function applyFilter(filterClass) {
 	cards.forEach((card) => {
 		if (filterClass === "all" || card.classList.contains(filterClass)) {
-			card.style.display = "";
+			card.style.display = ""; // Show card
 		} else {
-			card.style.display = "none";
+			card.style.display = "none"; // Hide card
 		}
 	});
 }
 
+// Set filter click handlers after defining `applyFilter`
 allFilter.addEventListener("click", () => {
 	allFilter.classList.add("active");
 	displayFilter.classList.remove("active");
@@ -326,8 +341,9 @@ async function loadFont(fileHandle, sampleTextElement) {
 	const file = await fileHandle.getFile();
 	const blob = new Blob([file], { type: "font/ttf" });
 	const fontUrl = URL.createObjectURL(blob);
-	const fontName = fileHandle.name.split(".")[0];
+	const fontName = fileHandle.name.split(".")[0]; // Extract font name from file name
 
+	// Set @font-face rule dynamically
 	const style = document.createElement("style");
 	style.textContent = `
         @font-face {
@@ -337,11 +353,13 @@ async function loadFont(fileHandle, sampleTextElement) {
       `;
 	document.head.appendChild(style);
 
+	// Apply loaded font to sample text
 	sampleTextElement.style.fontFamily = fontName;
 	sampleTextElement.textContent =
 		document.getElementById("sampleTextInput").value;
 }
 
+// Update sample text for all font items when user types in the input box
 const inputField = document.getElementById("sampleTextInput");
 inputField.value = "Sample";
 inputField.addEventListener("click", () => {
@@ -368,16 +386,17 @@ inputField.addEventListener("click", () => {
 		}
 	});
 });
-//Dark mode
+
+//Update Colours for Dark mode
 document.getElementById("dark").addEventListener("click", () => {
-	document.documentElement.style.setProperty("--main-colour", "white");
+	document.documentElement.style.setProperty("--main-colour", "#ffffff");
 	document.documentElement.style.setProperty("--secondary-colour", "#1414ff");
 	document.documentElement.style.setProperty("--disabled", "#BEBEBE");
 });
 
-//Light mode
+//Update Colours for Light mode
 document.getElementById("light").addEventListener("click", () => {
 	document.documentElement.style.setProperty("--main-colour", "#1414ff");
-	document.documentElement.style.setProperty("--secondary-colour", "white");
+	document.documentElement.style.setProperty("--secondary-colour", "#ffffff");
 	document.documentElement.style.setProperty("--disabled", "dimgrey");
 });
