@@ -16,6 +16,7 @@ body {
 	color: var(--main-colour);
 	font-family: "Inter";
 	font-weight: 400;
+	transition: background-color 0.8s ease;
 }
 
 .grid-container {
@@ -72,7 +73,7 @@ body {
 	height: 66px;
 }
 .logo-main {
-	display: block; /* Ensures the SVG is not inline which can lead to sizing issues */
+	display: block;
 }
 
 .logo-svg {
@@ -87,7 +88,7 @@ body {
 }
 
 .interactions input {
-	background-color: var(--secondary-colour);
+	background-color: rgba(255,255,255,0);
 	border: none;
 	border-bottom: 1px solid var(--main-colour);
 	padding: 10px;
@@ -114,6 +115,26 @@ body {
 	border-radius: 10px;
 	border: 2px solid var(--main-colour);
 	cursor: pointer;
+	height: 45px;
+	display: flex;
+	align-content: center;
+    align-items: center;
+}
+
+.font-button:hover {
+	animation: float 0.5s ease-in-out forwards;
+}
+
+@keyframes float {
+
+	0% {
+		transform: translateY(0px);
+	}
+
+	100% {
+		transform: translateY(-8px);
+	}
+
 }
 
 .buttons {
@@ -128,6 +149,7 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
 
 .font-size .font-size-btn {
 	padding-bottom: 5px;
@@ -148,6 +170,22 @@ body {
 	display: flex;
 	gap: 10px;
 	align-items: center;
+}
+
+.theme-toggle div:hover, .font-size div:hover, li.tag:hover{
+	animation: float 0.5s ease-in-out forwards;
+}
+
+@keyframes float {
+
+	0% {
+		transform: translateY(0px);
+	}
+
+	100% {
+		transform: translateY(-8px);
+	}
+
 }
 
 .theme-btn {
@@ -179,8 +217,6 @@ body {
 	padding-top: 20px;
 	overflow: hidden;
 }
-
-
 
 .card-control {
 	display: flex;
@@ -225,11 +261,24 @@ body {
 }
 
 .layout-option:hover .layout-btn {
-	border: 2px solid var(--main-colour);
+	animation: float 0.5s ease-in-out forwards;
+}
+
+@keyframes float {
+
+	0% {
+		transform: translateY(0px);
+	}
+
+	100% {
+		transform: translateY(-8px);
+	}
+
 }
 
 .active .layout-btn {
 	background-color: var(--main-colour);
+	cursor: default;
 }
 
 .card-container {
@@ -260,7 +309,6 @@ text-align: center;
 
 .card {
 	border: 1px solid var(--main-colour);
-	background-color: var(--secondary-colour);
 	display: flex;
 	flex-direction: column;
 	width: 100%;
