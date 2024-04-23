@@ -368,3 +368,16 @@ inputField.addEventListener("click", () => {
 		}
 	});
 });
+//Dark mode
+document.getElementById("dark").addEventListener("click", () => {
+	document.documentElement.style.setProperty("--main-colour", "white");
+	document.documentElement.style.setProperty("--secondary-colour", "#1414ff");
+	document.documentElement.style.setProperty("--disabled", "#BEBEBE");
+});
+
+//Light mode
+document.getElementById("light").addEventListener("click", () => {
+	document.documentElement.style.setProperty("--main-colour", "#1414ff");
+	document.documentElement.style.setProperty("--secondary-colour", "white");
+	document.documentElement.style.setProperty("--disabled", "dimgrey");
+});
