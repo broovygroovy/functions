@@ -287,3 +287,84 @@ document
 		}
 	});
 
+function updateCards() {
+	cards = document.querySelectorAll(".card");
+}
+
+function applyFilter(filterClass) {
+	cards.forEach((card) => {
+		if (filterClass === "all" || card.classList.contains(filterClass)) {
+			card.style.display = "";
+		} else {
+			card.style.display = "none";
+		}
+	});
+}
+
+allFilter.addEventListener("click", () => {
+	allFilter.classList.add("active");
+	displayFilter.classList.remove("active");
+	modernFilter.classList.remove("active");
+	applyFilter("all");
+});
+
+modernFilter.addEventListener("click", () => {
+	modernFilter.classList.add("active");
+	displayFilter.classList.remove("active");
+	allFilter.classList.remove("active");
+	applyFilter("modern");
+});
+
+displayFilter.addEventListener("click", () => {
+	displayFilter.classList.add("active");
+	allFilter.classList.remove("active");
+	modernFilter.classList.remove("active");
+	applyFilter("display");
+});
+
+async function loadFont(fileHandle, sampleTextElement) {
+	const file = await fileHandle.getFile();
+	const blob = new Blob([file], { type: "font/ttf" });
+	const fontUrl = URL.createObjectURL(blob);
+	const fontName = fileHandle.name.split(".")[0];
+
+	const style = document.createElement("style");
+	style.textContent = `
+        @font-face {
+          font-family: '${fontName}';
+          src: url('${fontUrl}');
+        }
+      `;
+	document.head.appendChild(style);
+
+	sampleTextElement.style.fontFamily = fontName;
+	sampleTextElement.textContent =
+		document.getElementById("sampleTextInput").value;
+}
+
+const inputField = document.getElementById("sampleTextInput");
+inputField.value = "Sample";
+inputField.addEventListener("click", () => {
+	inputField.value = "";
+	inputField.style.caretColor = "var(--main-colour)";
+	inputField.addEventListener("input", function () {
+		const sampleText = this.value;
+
+		const sampleTextElements = document.querySelectorAll(".font-display");
+		sampleTextElements.forEach(function (sampleTextElement) {
+			sampleTextElement.textContent = sampleText;
+		});
+    });
+    
+	inputField.addEventListener("focusout", () => {
+		if (inputField.value == "") {
+			inputField.value = "Sample";
+
+			const sampleText = inputField.value;
+			const sampleTextElements = document.querySelectorAll(".font-display");
+			sampleTextElements.forEach(function (sampleTextElement) {
+				sampleTextElement.textContent = sampleText;
+			});
+		}
+	});
+});
