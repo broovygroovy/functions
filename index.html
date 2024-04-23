@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Font Website</title>
-  <link rel="icon" type="image/svg" href="favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&display=swap"
-    rel="stylesheet"
-  />
-  <link href="style.css" rel="stylesheet" />
-</head>
-  <body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Font Website</title>
+		<link rel="icon" type="image/svg" href="favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
 		<div class="grid-container">
 			<div class="grid-item-1 logo">
 				<div class="logo-container">
@@ -39,79 +39,88 @@
 					</svg>
 				</div>
 			</div>
+			<div class="grid-item-2 interactions">
+				<input
+					type="text"
+					class="text-input"
+					id="sampleTextInput"
+					placeholder="Enter text here"
+					value=""
+					autofocus
+					maxlength="8"
+				/>
+				<div class="buttons">
+					<button class="font-button" id="getFontsButton">
+						Get System Fonts
+					</button>
+					<div class="font-size">
+						<div class="font-size-btn" id="decrease">
+							<p>A<sup>-</sup></p>
+						</div>
+						<div class="font-size-btn" id="increase">
+							<p>A<sup>+</sup></p>
+						</div>
+					</div>
+					<div class="theme-toggle">
+						<div class="theme-btn" id="dark">A</div>
+						<div class="theme-btn active" id="light">A</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-item-3 empty"></div>
+			<div class="grid-item-4 empty"></div>
+			<div class="grid-item-5 main-area" id="main-area">
+				<div class="card-control">
+					<ul class="tags">
+						<li class="tag active" id="all">All</li>
+						<li class="tag" id="display">Display</li>
+						<li class="tag" id="modern">Modern</li>
+						<li class="tag" id="add">+</li>
+					</ul>
+					<div class="layout">
+						<div class="layout-option active" id="four-col">
+							<div class="layout-btn"></div>
+							<div class="layout-btn"></div>
+							<div class="layout-btn"></div>
+							<div class="layout-btn"></div>
+						</div>
+						<div class="layout-option" id="three-col">
+							<div class="layout-btn"></div>
+							<div class="layout-btn"></div>
+							<div class="layout-btn"></div>
+						</div>
+						<div class="layout-option" id="two-col">
+							<div class="layout-btn"></div>
+							<div class="layout-btn"></div>
+						</div>
+					</div>
+				</div>
 
-  <div class="container">
-    <h1>File List from /Library/Fonts Directory</h1>
+				<div class="card-container" id="card-container">
+					<div class="pre-load" id="preloaded">
+						<p>
+							Click the 'Get system fonts' button and navigate to your fonts
+							folder <br/>to load fonts from your system.
+						</p>
+					</div>
+					<ul class="file-list four-col" id="fileList"></ul>
+				</div>
+				<div class="small-screen">
+					<p>
+						This is a desktop only website. <br /><span
+							>Please open in your desktop browser or maximise your
+							window.</span
+						>
+						<br /><span class="thankyou">Thank You.</span>
+					</p>
+				</div>
+			</div>
+			<div class="grid-item-6 empty"></div>
+			<div class="grid-item-7 empty"></div>
+			<div class="grid-item-8 empty"></div>
+			<div class="grid-item-9 empty"></div>
+		</div>
 
-    <input type="text" id="sampleTextInput" placeholder="Enter sample text" value="Aa Bb Cc Dd Ee">
-
-    <button id="getFontsButton">Get Fonts List</button>
-
-    <ul id="fileList"></ul>
-  </div>
-
-  <script>
-    document.getElementById('getFontsButton').addEventListener('click', async function() {
-      try {
-        const fontsDirHandle = await window.showDirectoryPicker();
-        const fileList = document.getElementById('fileList');
-        fileList.innerHTML = ''; // Clear previous entries
-
-        for await (const entry of fontsDirHandle.values()) {
-          if (entry instanceof FileSystemFileHandle) {
-            const li = document.createElement('li');
-            li.classList.add('file-item'); // class for styling
-
-            // File name
-            const fileName = document.createElement('div');
-            fileName.classList.add('file-name');
-            fileName.textContent = entry.name;
-            li.appendChild(fileName);
-
-            // Sample text
-            const sampleText = document.createElement('div');
-            sampleText.classList.add('sample-text');
-            li.appendChild(sampleText);
-
-            fileList.appendChild(li);
-
-            loadFont(entry, sampleText); // Load font and display sample text
-          }
-        }
-      } catch (err) {
-        console.error('Error accessing fonts directory:', err);
-      }
-    });
-
-    async function loadFont(fileHandle, sampleTextElement) {
-      const file = await fileHandle.getFile();
-      const blob = new Blob([file], { type: 'font/ttf' });
-      const fontUrl = URL.createObjectURL(blob);
-      const fontName = fileHandle.name.split('.')[0]; // Extract font name from file name
-
-      // Set @font-face rule dynamically
-      const style = document.createElement('style');
-      style.textContent = `
-        @font-face {
-          font-family: '${fontName}';
-          src: url('${fontUrl}');
-        }
-      `;
-      document.head.appendChild(style);
-
-      // Apply loaded font to sample text
-      sampleTextElement.style.fontFamily = fontName;
-      sampleTextElement.textContent = document.getElementById('sampleTextInput').value;
-    }
-
-    // Update sample text for all font items when user types in the input box
-    document.getElementById('sampleTextInput').addEventListener('input', function() {
-      const sampleText = this.value;
-      const sampleTextElements = document.querySelectorAll('.sample-text');
-      sampleTextElements.forEach(function(sampleTextElement) {
-        sampleTextElement.textContent = sampleText;
-      });
-    });
-  </script>
-</body>
+		<script src="script.js"></script>
+	</body>
 </html>
