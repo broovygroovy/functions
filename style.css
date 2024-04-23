@@ -18,7 +18,6 @@
       text-align: center;
     }
 
-    /* Button styling */
     button {
       display: block;
       margin: 20px auto;
@@ -36,7 +35,6 @@
       background-color: #0056b3;
     }
 
-    /* Text input styling */
     input[type="text"] {
       width: 100%;
       padding: 15px;
@@ -46,7 +44,6 @@
       box-sizing: border-box;
     }
 
-    /* List item styling */
     ul {
       list-style-type: none;
       padding: 0;
