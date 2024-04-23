@@ -80,3 +80,138 @@ body {
 .logo-svg {
 	fill: var(--main-colour);
 }
+
+
+.file-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.card {
+	border: 1px solid var(--main-colour);
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.four-col .card {
+	border-radius: 10px;
+	flex-basis: 25%;
+	max-width: 23%;
+}
+
+.three-col .card {
+	border-radius: 15px;
+	flex-basis: 33%;
+	max-width: 30%;
+}
+
+.two-col .card {
+	border-radius: 20px;
+	flex-basis: 50%;
+	max-width: 48%;
+}
+
+.four-col .font-name {
+	padding: 10px 10px 0px;
+	text-align: left;
+	font-size: 10px;
+	line-height: 10px;
+}
+
+.three-col .font-name {
+	padding: 15px 15px 0px;
+	text-align: left;
+	font-size: 15px;
+	line-height: 15px;
+}
+
+.two-col .font-name {
+	padding: 20px 20px 0px;
+	text-align: left;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.font-display {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "inter";
+	text-align: center;
+	height: 100%;
+	overflow: hidden;
+}
+
+.four-col .font-display {
+	font-size: 40px;
+	padding: 20px;
+	border-bottom: 1px solid var(--main-colour);
+	line-height: 40px;
+}
+
+.three-col .font-display {
+	font-size: 60px;
+	padding: 30px;
+	border-bottom: 1px solid var(--main-colour);
+	line-height: 60px;
+}
+
+.two-col .font-display {
+	font-size: 80px;
+	padding: 40px;
+	border-bottom: 1px solid var(--main-colour);
+	line-height: 80px;
+}
+
+.four-col .tag-selector {
+	display: flex;
+	padding: 5px 10px;
+	gap: 5px;
+}
+
+.three-col .tag-selector {
+	display: flex;
+	padding: 7.5px 15px;
+	gap: 7.5px;
+}
+
+.two-col .tag-selector {
+	display: flex;
+	padding: 15px 20px;
+	gap: 10px;
+}
+
+.font-tag {
+	border: 1px solid var(--main-colour);
+	cursor: pointer;
+}
+
+.four-col .font-tag {
+	padding: 2.5px 5px;
+	border-radius: 4px;
+	font-size: 10px;
+}
+
+.three-col .font-tag {
+	padding: 4px 10px;
+	border-radius: 6px;
+	font-size: 15px;
+}
+
+.two-col .font-tag {
+	padding: 5px 15px;
+	border-radius: 8px;
+	font-size: 20px;
+}
+
+.tag-selector .active {
+	background-color: var(--main-colour);
+	color: var(--secondary-colour);
+}
+
+.small-screen {
+	display: none;
+}
